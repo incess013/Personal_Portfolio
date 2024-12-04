@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+
+    <!-- Link to Lora font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Adding Smooth Scroll Polyfill for Cross-Browser Compatibility -->
+    <style>
+        html {
+            scroll-padding-top: 80px; /* Offset the scroll for the fixed header */
+        }
+        
+        body {
+            padding-top: 80px;  /* Ensure content is not covered by header */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">CEANE</div>
+        <nav>
+            <ul>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- About Me Section -->
+        <section id="about-me">
+            <div class="about-container">
+                <div class="avatar-container">
+                    <div class="avatar">
+                        <img src="assets/img1.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="name">
+                        <h3>Princess Jhoanna-Mae B. Rodiel</h3>
+                    </div>
+                </div>
+                <div class="about-description">
+                    <p>I’m a student majoring in Bachelor of Science in Information Technology (BSIT). I’m excited about the prospect of sharing my work with others, whether through coding communities, tech blogs, or open-source contributions. I'm eager to team up with others to discover and advance technology's capabilities.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <p>Git/GitHub</p>
+                    <img src="https://www.biteinteractive.com/wp-content/uploads/2021/05/git-vs-github.png" alt="GitHub Logo" class="skill-logo">
+                </div>
+                <div class="skill">
+                    <p>Python</p>
+                    <img src="https://i.pinimg.com/originals/82/a2/18/82a2188c985ce75402ae44fc43fe7e5e.png" alt="Python Logo" class="skill-logo">
+                </div>
+                <div class="skill">
+                    <p>HTML CSS JS</p>
+                    <img src="https://imakestuff.online/wp-content/uploads/2019/12/HTML-CSS-JS-Logo.png" alt="HTML CSS JS Logo" class="skill-logo">
+                </div>
+                <div class="skill">
+                    <p>Figma</p>
+                    <img src="https://cdn4.iconfinder.com/data/icons/logos-brands-in-colors/3000/figma-logo-512.png" alt="Figma Logo" class="skill-logo">
+                </div>
+                <div class="skill">
+                    <p>C++/C#</p>
+                    <img src="https://stage.digilabs.ai/wp-content/uploads/2023/10/C.png" alt="Node.js Logo" class="skill-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+        
+            <div class="projects-wrapper">
+                <!-- Project 1 -->
+                <div class="project">
+                    <h3>"Shacea" Website</h3>
+                    <p>A collaborative portfolio website created and designed by our group using HTML and CSS in a visually appealing format.</p>
+        
+                    <!-- Project Images -->
+                    <div class="project-images">
+                        <div class="project-image">
+                            <img src="assets/img2.png" alt="Project 1 Screenshot 1">
+                        </div>
+                        <div class="project-image">
+                            <img src="assets/img3.png" alt="Project 1 Screenshot 2">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Project 2 -->
+                <div class="project">
+                    <h3>Personal Portfolio</h3>
+                    <p>A website that showcases my projects and skills in a clean, engaging layout for easy navigation.</p>
+        
+                    <!-- Project Images -->
+                    <div class="project-images">
+                        <div class="project-image">
+                            <img src="assets/img4.png" alt="Project 2 Screenshot 1">
+                        </div>
+                        <div class="project-image">
+                            <img src="assets/img5.png" alt="Project 2 Screenshot 2">
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Project 3 -->
+                <div class="project">
+                    <h3>Business Website</h3>
+                    <p>A website design for a small business, highlighting services, about, and contact information.</p>
+        
+                    <!-- Project Images -->
+                    <div class="project-images">
+                        <div class="project-image">
+                            <img src="assets/img6.png" alt="Project 3 Screenshot 1">
+                        </div>
+                        <div class="project-image">
+                            <img src="assets/img7.png" alt="Project 3 Screenshot 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>Contact me at:</p>
+            <p>Email: <a href="mailto:cssjhnnmae@gmail.com">cssjhnnmae@gmail.com</a></p>
+            <p>Phone: 0953-000-000</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Smooth Scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute("href");
+                const targetElement = document.querySelector(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // 80px offset for fixed header
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

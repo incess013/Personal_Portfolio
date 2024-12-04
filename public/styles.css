@@ -1,0 +1,414 @@
+/* General Styles: Reset default margin/padding and set the font */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Ensure padding/border don't affect width/height */
+    font-family: 'Lora', serif;  /* Apply Lora font to all elements */
+}
+
+/* Body Styles: Set background, line height, and flexbox layout */
+body {
+    background: linear-gradient(to bottom, #f4f4f4, #fff); /* Subtle gradient from light gray to white */
+    line-height: 1.6; /* Space between lines of text for readability */
+    min-height: 100vh; /* Ensure body takes up at least full viewport height */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    margin: 0 20px; /* Space between content and edges */
+    padding: 0; /* No padding */
+}
+
+/* Color Variables: Store common colors for easy reuse */
+:root {
+    --primary-color: #CDD9C5; /* Light greenish background */
+    --secondary-color: #6D7A71; /* Darker greenish color for text */
+    --highlight-color: #BA806A; /* Accent color (orange-brown) */
+    --green-color: #77dd77; /* Bright green for logo/nav */
+}
+
+/* Header Styles: Fixed header with logo and navigation */
+header {
+    display: flex; /* Flexbox for logo and nav layout */
+    justify-content: space-between; /* Space out logo and nav */
+    align-items: center; /* Vertically center items */
+    padding: 20px 30px; /* Padding inside header */
+    background-color: var(--primary-color);  /* Header background color */
+    color: #fff; /* White text */
+    position: fixed; /* Fixed at the top */
+    width: 100%; /* Full width */
+    top: 0; /* Stick to top */
+    left: 0; /* Align to left */
+    z-index: 10; /* Ensure it's on top of other content */
+}
+
+/* Logo Styles */
+header .logo {
+    font-size: 40px; /* Large font size for logo */
+    font-weight: bold; /* Bold font */
+    color: var(--secondary-color); /* Use secondary color for logo */
+    margin-left: 20px; /* Space between logo and edge */
+}
+
+/* Responsive Logo Sizes */
+@media screen and (max-width: 1024px) {
+    header .logo {
+        font-size: 35px; /* Smaller logo on tablets */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header .logo {
+        font-size: 30px; /* Smaller on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header .logo {
+        font-size: 25px; /* Even smaller on mobile */
+    }
+}
+
+/* Navigation Styles */
+header nav {
+    display: flex; /* Flex layout for nav */
+    justify-content: flex-start; /* Align items to the left */
+    margin-left: 20px; /* Space between logo and nav */
+}
+
+header nav ul {
+    display: flex; /* Flex layout for list */
+    list-style: none; /* Remove default list styles */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+    gap: 20px; /* Space between list items */
+}
+
+header nav ul li {
+    list-style: none; /* Remove bullet points */
+}
+
+header nav ul li a {
+    color: var(--secondary-color); /* Text color for links */
+    text-decoration: none; /* Remove underlines */
+    font-size: 25px; /* Font size for nav items */
+    padding: 8px 16px; /* Padding around text */
+    border: 1px solid var(--primary-color); /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    position: relative; /* For pseudo-element positioning */
+    display: inline-block; /* Display links inline */
+}
+
+/* Hover and Focus Effects for Links */
+header nav ul li a:hover,
+header nav ul li a:focus {
+    color: #fff; /* White text on hover/focus */
+    background-color: var(--secondary-color); /* Dark background */
+    border-color: var(--secondary-color); /* Darker border */
+}
+
+/* Stable Hover Effect for Active Section */
+header nav ul li a:focus,
+header nav ul li a:target {
+    color: #fff;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+header nav ul li a:focus::after,
+header nav ul li a:target::after {
+    width: 100%; /* Expand underline on focus/target */
+}
+
+/* Main Section Styles: Padding and flex layout for content */
+main {
+    padding: 120px 50px 50px; /* Space for fixed header and content */
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    flex-grow: 1; /* Allow main to grow with content */
+}
+
+/* About Me Section Styles */
+#about-me {
+    display: flex; /* Flex layout for about section */
+    flex-direction: column;
+    align-items: center; /* Center content */
+    padding: 40px 20px; /* Padding around content */
+    margin-bottom: 40px; /* Space below section */
+}
+
+.about-container {
+    display: flex; /* Flex layout for profile */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 900px; /* Limit width */
+    margin-top: 30px; /* Space from top */
+}
+
+.avatar-container {
+    display: flex;
+    align-items: center; /* Align avatar and name horizontally */
+    gap: 20px; /* Space between avatar and name */
+    justify-content: center; /* Center content */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Limit width */
+}
+
+.avatar {
+    width: 120px; /* Avatar size */
+    height: 120px; /* Avatar size */
+    border-radius: 50%; /* Round avatar */
+    overflow: hidden; /* Hide anything outside the circle */
+    background-color: #ccc; /* Placeholder background */
+}
+
+.avatar img {
+    width: 100%; /* Make image fill avatar */
+    height: 100%; /* Make image fill avatar */
+    object-fit: cover; /* Crop image to cover the circle */
+}
+
+.name h3, .about-description p {
+    font-size: 28px; /* Larger font for name and description */
+    color: var(--secondary-color); /* Text color */
+    text-align: center; /* Center text */
+    margin: 0; /* Remove margin */
+}
+
+.about-description {
+    display: flex; /* Flexbox for description */
+    justify-content: center; /* Center text */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text */
+    width: 100%; /* Full width */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    .name h3 { font-size: 24px; }
+    .about-description p { font-size: 24px; }
+    .avatar { width: 100px; height: 100px; }
+}
+
+@media screen and (max-width: 768px) {
+    .name h3 { font-size: 20px; }
+    .about-description p { font-size: 20px; }
+    .avatar { width: 80px; height: 80px; }
+    .avatar-container { flex-direction: column; gap: 10px; }
+}
+
+@media screen and (max-width: 480px) {
+    .name h3 { font-size: 18px; }
+    .about-description p { font-size: 16px; }
+    .avatar { width: 70px; height: 70px; }
+    .avatar-container { width: 100%; gap: 8px; }
+}
+
+/* Skills Section Styles */
+#skills {
+    padding: 40px 20px;
+    text-align: center; /* Center text */
+}
+
+#skills h2 {
+    font-size: 25px; /* Font size for section title */
+    color: var(--secondary-color); /* Section title color */
+    margin-bottom: 20px; /* Space below title */
+}
+
+.skills-container {
+    display: flex; /* Flex layout for skills */
+    justify-content: center; /* Center items */
+    gap: 20px; /* Space between skills */
+    flex-wrap: wrap; /* Wrap skills on small screens */
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Space above skills */
+}
+
+.skill {
+    display: flex;
+    flex-direction: column; /* Stack skill name and logo */
+    align-items: center;
+    width: 150px; /* Width for each skill item */
+    margin-bottom: 20px; /* Space below each skill */
+}
+
+.skill-logo {
+    width: 90px; /* Logo size */
+    height: 90px; /* Logo size */
+    margin-top: 10px; /* Space above logo */
+    object-fit: contain; /* Ensure logo fits */
+}
+
+.skill p {
+    font-size: 25px; /* Font size for skill names */
+    color: var(--secondary-color); /* Text color */
+    text-align: center; /* Center text */
+    margin-bottom: 10px; /* Space below text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    #skills h2 { font-size: 22px; }
+    .skill { width: 120px; }
+    .skill p { font-size: 20px; }
+}
+
+@media screen and (max-width: 768px) {
+    #skills h2 { font-size: 20px; }
+    .skill { width: 100px; }
+    .skill p { font-size: 18px; }
+}
+
+@media screen and (max-width: 480px) {
+    #skills h2 { font-size: 18px; }
+    .skill { width: 80px; }
+    .skill p { font-size: 16px; }
+}
+
+/* Project Section Styles */
+#projects {
+    padding: 40px 20px;
+    margin-top: 120px; /* Space from top */
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 25px; /* Larger font for project title */
+    color: var(--secondary-color); /* Text color */
+    margin-bottom: 20px; /* Space below title */
+}
+
+/* Projects Wrapper Styles */
+.projects-wrapper {
+    display: flex; /* Flex layout for projects */
+    justify-content: space-between; /* Space between projects */
+    gap: 30px; /* Space between projects */
+    flex-wrap: wrap; /* Wrap projects on smaller screens */
+    align-items: flex-start; /* Align items at the top */
+}
+
+/* Individual Project Styles */
+.project {
+    display: flex; /* Flex layout for project */
+    flex-direction: column; /* Stack text and images */
+    width: 30%; /* Project width */
+    margin-bottom: 30px; /* Space below each project */
+    padding: 15px; /* Padding inside each project */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #fafafa; /* Light background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.project h3 {
+    font-size: 24px; /* Font size for project title */
+    color: var(--secondary-color); /* Title color */
+    margin-bottom: 10px; /* Space below title */
+}
+
+.project p {
+    font-size: 16px; /* Font size for description */
+    color: #666; /* Text color */
+    margin-bottom: 10px; /* Space below text */
+}
+
+/* Project Image Container */
+.project-images {
+    display: flex; /* Flex layout for images */
+    flex-direction: column; /* Stack images */
+    gap: 10px; /* Space between images */
+    align-items: center; /* Center images */
+    margin-top: 20px; /* Space from description */
+}
+
+.project-image {
+    width: 80%; /* Width of images */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ddd; /* Light background for images */
+}
+
+.project-image img {
+    width: 100%; /* Full width for image */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Crop image to cover container */
+}
+
+footer {
+    background: none; /* No background color */
+    color: inherit; /* Use default text color */
+    padding: 20px 0; /* Add some padding */
+    text-align: center; /* Center-align text */
+    color: var(--secondary-color);
+}
+
+/* Responsive Layout for Medium Screens (1024px and below) */
+@media screen and (max-width: 1024px) {
+    header nav ul li a {
+        font-size: 20px; /* Smaller font size for tablets */
+    }
+
+    .projects-wrapper {
+        justify-content: center; /* Center projects */
+    }
+
+    .project {
+        width: 45%; /* Two projects per row on medium screens */
+    }
+
+    .project-images {
+        align-items: center; /* Center images */
+    }
+}
+
+/* Responsive Layout for Small Screens (768px and below) */
+@media screen and (max-width: 768px) {
+    #projects h2 {
+        font-size: 24px; /* Smaller font size for mobile */
+    }
+
+    .projects-wrapper {
+        justify-content: center; /* Center projects */
+    }
+
+    .project {
+        width: 100%; /* Full width for projects on small screens */
+        margin-bottom: 20px; /* Space below each project */
+    }
+
+    .project h3 {
+        font-size: 20px; /* Smaller project title */
+    }
+
+    .project p {
+        font-size: 14px; /* Smaller description font */
+    }
+
+    /* Adjust nav font size for small screens */
+    header nav ul li a {
+        font-size: 18px; /* Smaller font for nav links */
+    }
+}
+
+/* Extra Small Screen Layout (480px and below) */
+@media screen and (max-width: 480px) {
+    #projects h2 {
+        font-size: 20px; /* Even smaller font size for projects */
+    }
+
+    .project {
+        width: 100%; /* Full width on very small screens */
+        margin-bottom: 20px; /* Space between projects */
+    }
+
+    .project h3 {
+        font-size: 18px; /* Smaller title font */
+    }
+
+    .project p {
+        font-size: 12px; /* Smaller description font */
+    }
+}
